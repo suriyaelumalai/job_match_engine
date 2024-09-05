@@ -1,24 +1,40 @@
-# README
+# Job Match Recommendation Engine - Backend (Rails API)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the backend API for the Job Match Recommendation Engine, built using Ruby on Rails. The API processes jobseeker and job CSV data and returns job recommendations based on matching skills.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+### 1. Clone the repository:
 
-* System dependencies
+```
+git clone https://github.com/yourusername/job-match-backend.git
+cd job-match-backend
+```
 
-* Configuration
+### 2. Install dependencies:
 
-* Database creation
+```
+bundle install
+```
+### 3. Set up the database:
 
-* Database initialization
+```
+rails db:create
+rails db:migrate
+```
 
-* How to run the test suite
+### 4. Start the Rails server:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+rails server
+```
 
-* Deployment instructions
+The API will be available at http://localhost:8000.
 
-* ...
+## API Endpoints
+POST /job_matches
+
+This endpoint receives two CSV files (jobseekers and jobs) and returns job recommendations.
+   - Request: Multipart form-data with jobseekers and jobs CSV files.
+  
+   - Response: JSON with job recommendations sorted by jobseeker and matching skill percentage.
